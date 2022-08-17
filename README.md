@@ -1,4 +1,5 @@
 # YGGTORRENT BOT
+[![Docker Image CI](https://github.com/mainmain-rl/bot-ratio-yggtorrent-python/actions/workflows/docker-image.yaml/badge.svg?branch=main)](https://github.com/mainmain-rl/bot-ratio-yggtorrent-python/actions/workflows/docker-image.yaml)
 
 ## What am I doing ?
 Hello ! I'm a bot to get your yggtorrent seeding informations and upload it in datadog !
