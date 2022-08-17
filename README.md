@@ -15,19 +15,26 @@ I work with 3 variables :
 * YGGTORRENT_PROFILE_URL="https://www5.yggtorrent.fi/profile/xxxxx-you_name"
 
 You can find your yggtorrent public id in "my account", near of your upload/download data there is an eye, click on it, this is the link !
-
-### exemple with docker :
+## Example with docker :
 
 You can run me like that:
 ```bash
 docker run --name bot-yggtorrent-test \
     -e DD_API_KEY=YOUR_API_KEY \
     -e DD_SITE="https://datadoghq.eu" \
-    -e YGGTORRENT_PROFILE_URL="https://www5.yggtorrent.fi/profile/67491-garzeus" \
+    -e YGGTORRENT_PROFILE_URL="https://www5.yggtorrent.fi/profile/xxxxx-you_name" \
     mainmainrl/bot-yggtorrent:latest
 ```
 
 Don't hesitate to use me with docker-compose or Kubernetes !
 
+## in Datadog:
+
+You can explore the 3 metrics:
+* yggtorrent.metric.upload
+* yggtorrent.metric.download
+* yggtorrent.metric.ratio
+
+upload & download are in Go
 ## Never forget:
 You can update me !
