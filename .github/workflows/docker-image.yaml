@@ -30,4 +30,4 @@ jobs:
           platforms: linux/amd64,linux/arm64
           context: .
           push: true
-          tags: mainmain-rl/bot-yggtorrent:${{env.version_app}},mainmain-rl/bot-yggtorrent:latest
+          tags: mainmainrl/bot-yggtorrent:${{env.version_app}},mainmainrl/bot-yggtorrent:latest

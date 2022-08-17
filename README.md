@@ -24,7 +24,7 @@ docker run --name bot-yggtorrent-test \
     -e DD_API_KEY=YOUR_API_KEY \
     -e DD_SITE="https://datadoghq.eu" \
     -e YGGTORRENT_PROFILE_URL="https://www5.yggtorrent.fi/profile/67491-garzeus" \
-    mainmain-rl/bot-yggtorrent:latest
+    mainmainrl/bot-yggtorrent:latest
 ```
 
 Don't hesitate to use me with docker-compose or Kubernetes !
