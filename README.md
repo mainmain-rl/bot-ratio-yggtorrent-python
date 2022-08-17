@@ -7,7 +7,7 @@ Hello ! I'm a bot to get your yggtorrent seeding informations and upload it in d
 
 I get your upload and download public information, I made the ratio of it and it's in your datadog account !
 
-All the data is in Go.
+The exporting data can be in To or Go.
 ## How to use me ?
 
 I work with 3 variables :
@@ -36,6 +36,5 @@ You can explore the 3 metrics:
 * yggtorrent.metric.download
 * yggtorrent.metric.ratio
 
-upload & download are in Go
 ## Never forget:
 You can update me !

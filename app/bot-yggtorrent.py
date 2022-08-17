@@ -51,15 +51,6 @@ def botRatioYggtorrent():
             upload = float(parsed_html.find("strong", {"style":"font-size: 10px; color:#3dd806"}).text[:-2])
             download = float(parsed_html.find("strong", {"style":"font-size: 10px; color:#ea5656"}).text[:-2])
             ratio = float(upload/download)
-            
-            # update value and create list
-            upload_base = parsed_html.find("strong", {"style":"font-size: 10px; color:#3dd806"}).text[-2:]
-            if upload_base == 'To':
-                upload = upload*1000
-            upload = ["upload",upload]
-            download_base = parsed_html.find("strong", {"style":"font-size: 10px; color:#ea5656"}).text[-2:]
-            if download_base == 'To':
-                download = download*1000
             download = ["download",download]
             ratio = ["ratio",ratio]
             list_data = [upload,download,ratio]
