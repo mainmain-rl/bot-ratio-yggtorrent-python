@@ -4,6 +4,11 @@ import time
 from datadog import initialize, api
 from bs4 import BeautifulSoup
 import os
+import logging
+
+# loggin
+logging.basicConfig(level=logging.INFO)
+logger = logging.getLogger(__name__)
 
 # get variable from env
 try:
@@ -11,7 +16,7 @@ try:
     datadog_api_host = os.environ['DD_SITE']
     yggtorrent_profil_url = os.environ['YGGTORRENT_PROFILE_URL']
 except Exception as e:
-    print(e)
+    logger.info(e)
 
 # set env for datadog
 options = {
@@ -33,9 +38,9 @@ def sentDataToDatadog(name_metric,metric,user):
             tags=["yggAccount:"+user],
             type='gauge'
         )
-        print("Sending "+name_metric+" metrics | "+user)
+        logger.info("Sending "+name_metric+" metrics | "+user)
     except Exception as e:
-        print(e)
+        logger.info(e)
 
 ## Function global
 def botRatioYggtorrent():
@@ -61,8 +66,8 @@ def botRatioYggtorrent():
                 sentDataToDatadog(i[0],i[1],user)
                     
         except Exception as e:
-            print(e)
-            print("[ERROR] : get yggtorrent or parsingfor "+ user)
+            logger.info(e)
+            logger.info("[ERROR] : get yggtorrent or parsingfor "+ user)
         
         #WAITING 60 SEC    
         time.sleep(60)

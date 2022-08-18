@@ -133,3 +133,4 @@ venv/
 .env
 .idea
 .DSTORE
+.DS_Store
