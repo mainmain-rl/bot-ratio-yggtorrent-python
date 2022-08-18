@@ -132,3 +132,4 @@ venv/
 .vscode
 .env
 .idea
+.DSTORE
