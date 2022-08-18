@@ -15,15 +15,23 @@ try:
     datadog_api_key = os.environ['DD_API_KEY']
     datadog_api_host = os.environ['DD_SITE']
     yggtorrent_profil_url = os.environ['YGGTORRENT_PROFILE_URL']
+    logger.debug("env variables")
+    logger.debug("DD_API_KEY="+datadog_api_key)
+    logger.debug("DD_API_KEY="+datadog_api_host)
+    logger.debug("DD_API_KEY="+yggtorrent_profil_url)
 except Exception as e:
-    logger.info(e)
+    logger.error(e)
 
 # set env for datadog
 options = {
     'api_key': datadog_api_key,
     'api_host': datadog_api_host,
 }
-initialize(**options)
+try:
+    initialize(**options)
+    logger.debug("Datadog initializer OK")
+except Exception as e:
+    logger.error(e)
 
 # yggtorrent url profile
 yggtorrent_url = yggtorrent_profil_url
@@ -40,7 +48,7 @@ def sentDataToDatadog(name_metric,metric,user):
         )
         logger.info("Sending "+name_metric+" metrics | "+user)
     except Exception as e:
-        logger.info(e)
+        logger.error(e)
 
 ## Function global
 def botRatioYggtorrent():
@@ -66,8 +74,8 @@ def botRatioYggtorrent():
                 sentDataToDatadog(i[0],i[1],user)
                     
         except Exception as e:
-            logger.info(e)
-            logger.info("[ERROR] : get yggtorrent or parsingfor "+ user)
+            logger.error(e)
+            logger.error("[ERROR] : get yggtorrent or parsingfor "+ user)
         
         #WAITING 60 SEC    
         time.sleep(60)
