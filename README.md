@@ -9,6 +9,7 @@ I get your upload and download public information, I made the ratio of it and it
 
 The exporting data can be in To or Go.
 ## How to use me?
+My images are availables in ARM & AMD platform !
 
 I work with 3 variables:
 * DD_API_KEY=YOUR_API_KEY
@@ -18,13 +19,12 @@ I work with 3 variables:
 You can find your yggtorrent public id in "my account", near of your upload/download data there is an eye, click on it, this is the link !
 ## Example with docker:
 
-You can run me like that:
 ```bash
 docker run --name bot-yggtorrent-test \
     -e DD_API_KEY=YOUR_API_KEY \
     -e DD_SITE="https://datadoghq.eu" \
     -e YGGTORRENT_PROFILE_URL="https://www5.yggtorrent.fi/profile/xxxxx-you_name" \
-    mainmainrl/bot-yggtorrent:latest
+    mainmainrl/bot-yggtorrent:0.0.4
 ```
 
 ## Example with Kubernetes:
