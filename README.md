@@ -8,26 +8,50 @@ Hello ! I'm a bot to get your yggtorrent seeding informations and upload it in d
 I get your upload and download public information, I made the ratio of it and it's in your datadog account !
 
 The exporting data can be in To or Go.
-## How to use me ?
+## How to use me?
+My images are availables in ARM & AMD platform !
 
-I work with 3 variables :
+I work with 3 variables:
 * DD_API_KEY=YOUR_API_KEY
 * DD_SITE="https://datadoghq.eu"
 * YGGTORRENT_PROFILE_URL="https://www5.yggtorrent.fi/profile/xxxxx-you_name"
 
 You can find your yggtorrent public id in "my account", near of your upload/download data there is an eye, click on it, this is the link !
-## Example with docker :
+## Example with docker:
 
-You can run me like that:
 ```bash
 docker run --name bot-yggtorrent-test \
     -e DD_API_KEY=YOUR_API_KEY \
     -e DD_SITE="https://datadoghq.eu" \
     -e YGGTORRENT_PROFILE_URL="https://www5.yggtorrent.fi/profile/xxxxx-you_name" \
-    mainmainrl/bot-yggtorrent:latest
+    mainmainrl/bot-yggtorrent:0.0.4
 ```
 
-Don't hesitate to use me with docker-compose or Kubernetes !
+## Example with Kubernetes:
+```yaml
+apiVersion: batch/v1
+kind: CronJob
+metadata:
+  name: bot-yggtorrent
+spec:
+  schedule: "*/5 * * * *"
+  jobTemplate:
+    spec:
+      template:
+        spec:
+          containers:
+          - name: bot-yggtorrent
+            image: mainmainrl/bot-yggtorrent:cronjob-v1.0
+            imagePullPolicy: IfNotPresent
+            env:
+            - name: DD_API_KEY
+              value: YOU_TOKEN_HERE
+            - name: DD_SITE
+              value: "https://datadoghq.eu"
+            - name: YGGTORRENT_PROFILE_URL
+              value: "https://www5.yggtorrent.fi/profile/YOUR_ID_HERE"
+          restartPolicy: OnFailure
+```
 
 ## in Datadog:
 
