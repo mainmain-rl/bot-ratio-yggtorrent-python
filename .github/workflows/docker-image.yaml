@@ -8,7 +8,7 @@ jobs:
   build:
     runs-on: ubuntu-latest
     env:
-      version_app: 0.0.4
+      version_app: cronjob-v1.0
 
     steps:
     - uses: actions/checkout@v2
@@ -30,4 +30,4 @@ jobs:
           platforms: linux/amd64,linux/arm64
           context: .
           push: true
-          tags: mainmainrl/bot-yggtorrent:${{env.version_app}},mainmainrl/bot-yggtorrent:latest
+          tags: mainmainrl/bot-yggtorrent:${{env.version_app}}
